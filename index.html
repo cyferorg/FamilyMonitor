@@ -3,115 +3,54 @@
 <meta charset="utf-8" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css">
-<title>VPN Check and Act Configuration</title>
+<title>Friends Monitor</title>
 </head>
 
 <body>
-<h1>VPN Check and Act Instructions</h1>
+<h1>Friends Monitor</h1>
 <ul>
-<li><h3> <A href="#Configuraron">Configuration</A></h3>
-<li><h3> <A href="#Check">Application Pre-Launch VPN Check</A></h3>
+<li><h3> <A href="#Introduction">Introduction</A></h3>
+<li><h3> <A href="#Userinterface">The User Interface</A></h3>
 <li><h3> <A href="#Settings">Settings</A></h3>
 </ul>
-<a id="Configuration"></a>
-<h2>Configuration</h2>
-<p>There are three steps to configuring <b>VPN Check and Act</b>.</p>
-<ol>
-<li>Enter the names of the VPNs to be monitored.
-<li>Enter the tests to determine if the network traffic is using the operational VPN. This step is optional. If it is not configured, whilst <b>VPN Check and Act</b> will be able to determine if a VPN is active, it will not be able to determine whether the VPN is operating correctly.
-<li>Enter actions to take if the VPN fails. These will be to either kill a specific application or kill the entire network.
-</ol>
-<p>Please note that all entries are case-insensitive. (E.g. entering goldenvpn will detect GoldenVPN.)</p>
-<p>
-The three steps correspond to the three text boxes along the top half of the <b>VPN Check and Act</b> user interface. Each text box has three accompanying icons with the following functions.
-</p>
+<a id="Introduction"></a>
+<h2>Introduction</h2>
+<p>Friends Monitor is a very simple app in that it works with Google Maps. Most of the configuration that Friends Monitor uses is set through the Google Maps interface either via the Maps browser interface or the Maps app. Ask your friends and family to allow Google Maps to share their location with you (see below).Use Google Maps to define locations that will be used by Friends Monitor, for example your home location.</p>
+<p>Within Friends Monitor define the alarms you require which are in the form of:</p>
 <ul>
-<li><i class="fa fa-question-circle"></i> Displays help for the setting
-<li><i class="fa fa-play"></i> Tests and activates the setting
-<li><i class="fas fa-eye"></i> Displays relevant information to be used with the setting
+<li>Suwon is further than 800m from home.
+<li>James is closer than 2km from the library.
+<li>Suwon is further than 500m from Me.
+<li>Me is closer than 20km from the office.
 </ul>
-<h3>1. Entering the VPN names</h3>
-<p>
-<img style="margin:20px 20px;border:2px solid black;width:50%" src="Screenshots/screenshotA2.png" alt="Screenshot2" >
-</p>
-<p>
-<ul>
-<li>Start your VPN and then click <i class="fas fa-eye"></i> (#2).
-<li>The log (#4) will display the current network connections (above screenshot). From the log, identify your operational VPN and choose text that differentiates the VPN from the other network connections. In the above example, 'GoldenVPN' is used. 'GoldenVPN London' would also work but you may have other configurations of GoldenVPN, such as one that uses servers in Belgium, which might be identified as 'GoldenVPN Belgium'. This, obviously, would not match the 'GoldenVPN London' text.
-<li>Copy (or type) the chosen text into the box (#3).
-<li>Click <i class="fa fa-play"></i> (#1). If the name has been entered correctly and the VPN is still working, <b>VPN Check and Act's</b> border will turn green (below screenshot) and the log explains why the VPN is believed to be operational. 
-<li>(Note that in the above screenshot <b>VPN Check and Act's</b> border is grey, this indicates that the VPN can not be determined.)
-</ul>
-<p>
-<img style="margin:20px 20px;border:2px solid black;width:50%" src="Screenshots/screenshotA3.png" alt="Screenshot3" >
-</p>
-<h3>2. Entering the tests</h3>
-<p>
-<img style="margin:20px 20px;border:2px solid black;width:50%" src="Screenshots/screenshotA4.png" alt="Screenshot4" >
-</p>
+<p>Note that you refer to yourself as Me. And that's it!</p>
+<a id="Userinterface"></a>
+<h2>The User Interface</h3>
 
-<ul>
-<li>Disconnect the VPN (the border becomes red) and click <i class="fas fa-eye"></i> (#6).
-<li>The log will display the current http headers coming from your computer as viewed by an external observer (above screenshot). When a VPN is not operational, the headers will present the computer's true geographic values but when a VPN is operational these values will be from the active VPN server.
+<img style="margin:20px 20px;border:2px solid black;width:30%" src="Screenshots/friends.jpg" alt="Friends" >
 
-</ul>
-<p>
-<img style="margin:20px 20px;border:2px solid black;width:50%" src="Screenshots/screenshotA5.png" alt="Screenshot4" >
-</p>
-<ul>
-<li>Enter one or more tests that are <b>true</b> when the VPN is <b>not</b> operational. Some obvious tests such as using the value of the city don't always work well. You may find that, the city changes even when connecting from the same location. Testing the country would be safer, but that would mean it would not be possible to use a VPN that is based in your home country - which may, or may not, be a problem for you. A test that usually works well is the name of your ISP, as in the above example. Copy the desired test(s) into the box (#7).
-<li>Click <i class="fa fa-play"></i> (#5) and the log should state that the VPN is down because one of the tests is true (above screenshot).
-<li>Start the VPN and the border should go green and the log should state the VPN is up. Now click <i class="fa fa-play"></i> (#5) again. The result should be the log states that one of the tests was false and therefore the VPN is up (below screenshot).
-</ul>
-<p>
-<img style="margin:20px 20px;border:2px solid black;width:50%" src="Screenshots/screenshotA6.png" alt="Screenshot6" >
-</p>
-<h3>3. Entering the actions for when the VPN goes down</h3>
-<p>
-<img style="margin:20px 20px;border:2px solid black;width:50%" src="Screenshots/screenshotA7.png" alt="Screenshot7" >
-</p>
-<ul>
-<li>If the required action for when the VPN goes down is to stop all network traffic, check the network box (#11).
-<li>However, if the requirement is to only terminate certain applications, then the corresponding <b>process</b> names need to be entered into the box (#10). The process name is usually similar, but often not identical, to the application name. To obtain the process name, start the application (after starting the VPN if it is very sensitive) and click <i class="fas fa-eye"></i> (#9).
-<li>The log will show the running processes - there will be quite a few. Find the process that corresponds to the application that should be terminated when the VPN fails.
-<li>Enter the process name in the box (#10). (Above screenshot.)
-<li>Click <i class="fa fa-play"></i> (#8) and if the application is still running, the below warning will be shown. If you are happy with the warning, click the Yes button and confirm the application has been terminated. If it hasn't been terminated, probably the wrong process name was selected. (Try to find the correct process name and try again.) Obviously, in normal operation, the warning will not be shown but rather the application will be immediately terminated.
-</ul>
-<p>
-<img style="margin:20px 20px;border:2px solid black;width:50%" src="Screenshots/screenshotA8.png" alt="Screenshot8" >
-</p>
-<h3>4. That's it</h3>
-<ul>
-<li><b>VPN Check and Act</b> should now be operational. To test, bring up and down your VPNs, and make sure the required applications are being terminated.
-<li>Each of the boxes #3, #7 and #10 can have multiple entries but only one entry per line. Whenever, you make a change to a box contents, click the corresponding <i class="fa fa-play"></i> button (it should be pulsing) to activate the change.
-<li>Some further settings/actions are available via the cog button (#12). The most important one being the purchase button! (If the trial period has ended, and hence you can't access the purchase button, please purchase via the Microsoft Store.)
-</ul>
-<a id="Check"></a>
-<h2>Application Pre-Launch VPN Check</h2>
-<p>There may be some sensitive applications that you only want to run if a VPN is up. To implement this constraint, drag and drop the sensitive application onto <b>VPN Check and Act's</b> main window (though not onto a text box). This will create a new shortcut on your Windows desktop called "VPNCA" + the application's filename and with an icon taken from the application. Double clicking the shortcut will initiate a check on the VPN's status and if the VPN is up, the application will be launched; if the VPN is not up, a user prompt will be displayed.
-</p>
-<p>You will probably want to rename the shortcut to something more meaningful. Also you may wish to change the shortcut's icon.
-</p>
-<p>Drag and dropping multiple applications will create a single shortcut that launches all the dropped applications. The shortcut's filename and icon will come from the first application in the dropped group.
-</p>
+<img style="margin:20px 20px;border:2px solid black;width:30%" src="Screenshots/alarms.jpg" alt="Alarms" >
+
+<img style="margin:20px 20px;border:2px solid black;width:30%" src="Screenshots/fired.jpg" alt="Fired" >
+
+
 <a id="Settings"></a>
 <h2>Settings</h2>
 <p>The following can be found on the settings page which is accessible via the cog button.</p>
 <ul>
-<li>Mode (theme)
-<p>Whether to use Dark or Light mode for the user interface. Choosing 'Window setting' will reflect the Windows' mode setting.</p>
-<li>Save VPN status changes to Windows Notification Center
-<p>Notifications (e.g. VPN Up) will be saved to the Windows Notification Center (usually accessible by swiping left from Windows' right edge. If not checked, notifications will be visible in the Center for a few seconds and then removed.</p>
-<li>Hide from Windows taskbar when minimized
-<p>When minimized, VPN Check and Act will only be visible in the Windows Notification Area (also called the System Tray) usually located at the bottom right of the desktop.</p>
-<li>Mute notification sounds
-<p>Mute all sounds (typically occur when the VPN goes up or down) produced by VPN Check and Act.</p>
-<li>Brighten the log on updates
-<p>Add a brighten animation to the log window when it is updated.</p>
-<li>If tests timeout, assume VPN is down
-<p>If, when running the tests that check the correct operation of the active VPN, the tests time-out or fail to run then assume the VPN is down.</p>
-<li>Extra logging
-<p>Log additional (not directly relevant to the operation of VPN Check and Act) events to the log. Currently, the only additional event is session lock/unlock though additional ones may be added in future releases.</p>
+<li>Check frequency
+<p>How frequently to request an update of your friends' locations from Google. A value lower than every two minutes is not possible.</p>
+<li>Alarm Auto Reset
+<p>Whether to automatically reset an alarm. For example, if an alarm is set to fire when James is closer than 100m from home:</p>
+<ol>
+<li> Alarm fires when James is closer than 100m from home
+<li> Later James becomes further than 100m from home
+<li> Later still James is closer than 100m from home, if the alarm auto resets, the alarm will fire again. If the alarm does not auto reset then no new alarm will fire.
+</ol>
+<li>Alarm Reset Period
+<p>How long to wait before resetting the alarm. In the above example, this the Alarm Reset Period is, at step 2, how long James has to be further than 100m from home before the alarm auto resets.</p>
+<li>Units of Distance
+<p>Whether the metric or imperial system should be used .</p>
 </ul>
 </body>
 </html>
